@@ -1,0 +1,10 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE}
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME}
+spring:
+  cloud:
+    config:
+      override-system-properties: false
