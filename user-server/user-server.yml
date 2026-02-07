@@ -1,0 +1,6 @@
+server:
+  port: ${SERVER_PORT:8070}
+
+spring:
+  mongodb:
+    uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_SERVICE_PORT}/user?authSource=admin

@@ -1,14 +1,18 @@
 # set up api servers routes
-#spring:
-#  cloud:
-#    gateway:
-#      server:
-#        webflux:
-#          routes:
-#            - id: some
-#              uri: some
-#              predicates:
-#                - Path=
+spring:
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: user-server
+              uri: ${SPRING_CLOUD_GATEWAY_ROUTES_USER_SERVER:http://user-server-service:80/}
+              predicates:
+                - Path=/api/v1/users/**
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
 
 server:
   port: ${SERVER_PORT:8080}
