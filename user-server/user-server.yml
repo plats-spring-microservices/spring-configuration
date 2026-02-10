@@ -4,3 +4,8 @@ server:
 spring:
   mongodb:
     uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_SERVICE_PORT}/user?authSource=admin
+  rabbitmq:
+    host: http://${RABBIT_HOST}
+    username: ${RABBITMQ_DEFAULT_USER}
+    password: ${RABBITMQ_DEFAULT_PASS}
+    port: 5672
