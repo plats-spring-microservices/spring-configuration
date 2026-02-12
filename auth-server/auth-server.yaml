@@ -1,0 +1,22 @@
+server:
+  port: ${SERVER_PORT:8060}
+
+spring:
+  mongodb:
+    uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_SERVICE_PORT}/auth?authSource=admin
+  rabbitmq:
+    host: ${RABBIT_HOST}
+    username: ${RABBITMQ_DEFAULT_USER}
+    password: ${RABBITMQ_DEFAULT_PASS}
+    port: 5672
+
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 2000ms
+
+queues:
+  user-creation:
+    name: user.creation
